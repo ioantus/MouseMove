@@ -12,12 +12,12 @@ public class MouseApplication {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int screenWight = (int)screenSize.getWidth();
         int screenHeight = (int)screenSize.getHeight();
-        Point point = MouseInfo.getPointerInfo().getLocation();
+        Point point;
         while (true) {
+            point = MouseInfo.getPointerInfo().getLocation();
             Thread.sleep(ONE_MINUTE);
             if (!isMouseMoved(point)) {
                 robot.mouseMove(random.nextInt(screenWight), random.nextInt(screenHeight));
-                point = MouseInfo.getPointerInfo().getLocation();
             }
         }
     }
